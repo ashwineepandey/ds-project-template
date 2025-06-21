@@ -8,10 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Install uv
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:${PATH}"
-
 # Set working directory
 WORKDIR /app
 
@@ -19,12 +15,10 @@ WORKDIR /app
 COPY pyproject.toml .
 COPY requirements.txt .
 
-# Create and use virtual environment
-RUN uv venv /app/.venv
-ENV PATH="/app/.venv/bin:${PATH}"
-
-# Install dependencies
-RUN uv pip install -r requirements.txt
+# Install uv, then use it to install dependencies from requirements.txt
+RUN pip install --upgrade pip
+RUN pip install uv
+RUN uv pip install -r requirements.txt --system
 
 # Copy the rest of the application
 COPY . .

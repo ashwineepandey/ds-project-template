@@ -7,3 +7,13 @@ matplotlib
 pandas
 scikit-learn
 pytest
+kedro
+kedro-datasets[pandas.CSVDataSet]
+kedro-datasets[pandas.ExcelDataSet]
+kedro-datasets[pandas.ParquetDataSet]
+kedro-datasets[spark.SparkDataSet]
+kedro-telemetry
+kedro-viz
+plotly
+ruff
+pre-commit
