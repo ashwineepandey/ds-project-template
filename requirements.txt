@@ -1,0 +1,9 @@
+torch
+transformers
+fastapi
+uvicorn
+jupyter
+matplotlib
+pandas
+scikit-learn
+pytest

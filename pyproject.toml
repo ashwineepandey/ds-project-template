@@ -1,17 +1,13 @@
-[tool.kedro]
-package_name = "ds_project_template"
-project_name = "DS Project Template"
-project_version = "0.18.2"
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
 
-[tool.isort]
-profile = "black"
+[project]
+name = "mlproject"
+version = "0.1.0"
+description = "ML Development Environment"
+readme = "README.md"
+requires-python = ">=3.9"
 
-[tool.pytest.ini_options]
-addopts = """
---cov-report term-missing \
---cov src/ds_project_template -ra"""
 
-[tool.coverage.report]
-fail_under = 0
-show_missing = true
-exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+
